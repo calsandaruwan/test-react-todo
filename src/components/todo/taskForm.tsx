@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {TodoItem} from './index';
+import {ButtonDS} from "../designSystem/button";
 
 
 // initial state
@@ -33,9 +34,9 @@ export class TaskForm extends Component<any, initialState> {
                 <input type={'text'}
                        onChange={this.handleSelectedTask}
                        value={this.getValue()}/>
-                <button onClick={this.saveChanges}>
-                    {isUpdate ? 'Update' : 'Add'}
-                </button>
+                <ButtonDS type={'primary'}
+                          label={isUpdate ? 'Update' : 'Add'}
+                          onClick={this.saveChanges}/>
             </div>
         )
     }
@@ -68,6 +69,11 @@ export class TaskForm extends Component<any, initialState> {
 
     saveChanges = () => {
         const {selectedTask} = this.state;
+
+        if (!selectedTask) {
+            return false;
+        }
+
         const isUpdate = this.isUpdate();
         this.setState({
             selectedTask: null
