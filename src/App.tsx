@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './assets/main.css';
 import {TodoContainer} from "./components/todo/todoContainer";
 
+import './assets/main.css';
+import 'antd/dist/antd.less';
+
 function App() {
-  return (
-    <div className="App">
-        <TodoContainer/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <TodoContainer/>
+        </div>
+    );
 }
 
 export default App;
