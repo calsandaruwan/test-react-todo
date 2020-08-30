@@ -9,4 +9,5 @@ export interface Props {
     bordered?: boolean
     placeholder?: string
     size?: SizeType
+    id?: string
 }

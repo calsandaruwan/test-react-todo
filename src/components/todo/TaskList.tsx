@@ -7,7 +7,7 @@ export const TaskList: React.FC<Props> = (props) => {
 
     if (!(taskList && taskList.length)) {
         return (
-            <div className='text-center text-lg p-6'>
+            <div id='noTaskMessage' className='text-center text-lg p-6'>
                 <div>No tasks available at the moment.</div>
                 <div>Please add new task to see them here</div>
             </div>

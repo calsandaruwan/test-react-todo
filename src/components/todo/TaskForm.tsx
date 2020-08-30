@@ -36,7 +36,8 @@ export class TaskForm extends Component<TodoFormInterface, initialState> {
                 <Form className="flex items-center py-2">
 
                     <Form.Item className="border-b bg-transparent border-b-10 w-full py-1 leading-tight focus:outline-none">
-                        <InputTextDS className="text-xl"
+                        <InputTextDS id='todoInput'
+                                     className="text-xl"
                                      onChange={this.handleSelectedTask}
                                      bordered={false}
                                      value={this.getValue()}
@@ -47,7 +48,7 @@ export class TaskForm extends Component<TodoFormInterface, initialState> {
                     <Form.Item className="text-lg flex-shrink-0 text-sm text-white py-1 px-2 rounded">
                         <ButtonDS className="ml-4"
                                   type={'primary'}
-                                  label={isUpdate ? 'Update' : 'Add'}
+                                  label={isUpdate ? 'Update' : 'Create'}
                                   onClick={this.saveChanges}
                                   size={'large'}/>
                     </Form.Item>
