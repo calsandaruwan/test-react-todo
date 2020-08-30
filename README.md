@@ -37,8 +37,39 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `build:css`
+Generate tailwind css in to main.css file, Run this if you make any changes to tailwind css
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `storybook`
+Run storybook
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Setup guide
+Run following commands to init the project
+
+`npm install`<br />
+`npm run build:css`<br />
+`npm start`
+
+## Storybook
+Storybook is integrated. All the design system components and todo app components are already added there.
+
+## Architecture
+* Front end is React typescript
+* Tailwind is the css framework
+* Configure tailwind config through `./tailwind.config.js`
+* Control components are based on `ant design` library
+* Configure ant design style variables through `craco.config.js`
+* Most of the components are broken down to atomic components
+* Stateless components are used where only rendering matters
+
+## functionality
+* Main functionality is managing a todo list
+* List items can be added
+* Added list items can be marked as done
+* List items can be deleted if not needed
+* Except done items, others can be edited
+* List is sorted by the status of the task (Done items goes to the bottom)
+
+![Drag Racing](./src/img/screen1.png)
+
+
