@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {TodoItem} from './index';
+import {TodoFormInterface, TodoItem} from './index';
 import {ButtonDS} from "../designSystem/button";
+import {InputTextDS} from "../designSystem/textInput";
+import {Form} from 'antd';
 
 
 // initial state
@@ -8,8 +10,8 @@ type initialState = {
     selectedTask: null | TodoItem,
 }
 
-export class TaskForm extends Component<any, initialState> {
-    constructor(props: {}) {
+export class TaskForm extends Component<TodoFormInterface, initialState> {
+    constructor(props: any) {
         super(props);
         this.state = {
             selectedTask: null,
@@ -30,13 +32,27 @@ export class TaskForm extends Component<any, initialState> {
         const isUpdate = this.isUpdate();
 
         return (
-            <div id='todoForm'>
-                <input type={'text'}
-                       onChange={this.handleSelectedTask}
-                       value={this.getValue()}/>
-                <ButtonDS type={'primary'}
-                          label={isUpdate ? 'Update' : 'Add'}
-                          onClick={this.saveChanges}/>
+            <div id='todoForm' className="w-full">
+                <Form className="flex items-center py-2">
+
+                    <Form.Item className="border-b bg-transparent border-b-10 w-full py-1 leading-tight focus:outline-none">
+                        <InputTextDS className="text-xl"
+                                     onChange={this.handleSelectedTask}
+                                     bordered={false}
+                                     value={this.getValue()}
+                                     placeholder={'Anything in your mind'}
+                                     size={'large'}/>
+                    </Form.Item>
+
+                    <Form.Item className="text-lg flex-shrink-0 text-sm text-white py-1 px-2 rounded">
+                        <ButtonDS className="ml-4"
+                                  type={'primary'}
+                                  label={isUpdate ? 'Update' : 'Add'}
+                                  onClick={this.saveChanges}
+                                  size={'large'}/>
+                    </Form.Item>
+
+                </Form>
             </div>
         )
     }
@@ -60,7 +76,7 @@ export class TaskForm extends Component<any, initialState> {
     }
 
     getDefaultTask = () => {
-        return  {
+        return {
             id: new Date().getTime(),
             label: '',
             status: true
@@ -69,12 +85,12 @@ export class TaskForm extends Component<any, initialState> {
 
     saveChanges = () => {
         const {selectedTask} = this.state;
+        const isUpdate = this.isUpdate();
 
         if (!selectedTask) {
             return false;
         }
 
-        const isUpdate = this.isUpdate();
         this.setState({
             selectedTask: null
         }, () => {

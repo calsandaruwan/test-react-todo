@@ -1,13 +1,13 @@
 import React from 'react';
-import {TodoContainer} from "./components/todo/todoContainer";
+import {TodoComponent} from "./components/todo";
 
-import './assets/main.css';
 import 'antd/dist/antd.less';
+import './assets/main.css';
 
 function App() {
     return (
-        <div className="App">
-            <TodoContainer/>
+        <div className="font-sans">
+            <TodoComponent/>
         </div>
     );
 }

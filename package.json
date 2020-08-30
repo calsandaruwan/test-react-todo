@@ -53,8 +53,12 @@
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "craco-less": "^1.17.0",
+    "css-loader": "^4.2.2",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.0",
     "postcss-cli": "^7.1.1",
     "react-is": "^16.13.1",
+    "style-loader": "^1.2.1",
     "tailwindcss": "^1.7.5"
   }
 }

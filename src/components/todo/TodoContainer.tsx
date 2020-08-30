@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {TodoItem} from './index'
-import {TaskList} from "./taskList";
-import {TaskForm} from "./taskForm";
+import {TaskList} from "./TaskList";
+import {TaskForm} from "./TaskForm";
+import {HeaderDS} from "../designSystem/header";
 
 // initial state
 type initialState = {
@@ -22,12 +23,16 @@ export class TodoContainer extends Component<any, initialState> {
         const taskList = this.getSortedTaskList();
 
         return (
-            <div id='todoAppContainer'>
-                <TaskForm selectedTask={this.state.selectedTask} saveChanges={this.saveChanges}/>
-                <TaskList taskList={taskList}
-                          updateTaskStatus={this.updateTaskStatus}
-                          selectActiveTask={this.selectActiveTask}
-                          deleteTask={this.deleteTask}/>
+            <div className='max-w-lg mx-auto bg-white rounded-lg shadow-xl pt-6'>
+                <HeaderDS title='todo app'/>
+                <div id='todoAppContainer' className=' p-6 '>
+                    <TaskForm selectedTask={this.state.selectedTask}
+                              saveChanges={this.saveChanges}/>
+                    <TaskList taskList={taskList}
+                              updateTaskStatus={this.updateTaskStatus}
+                              selectActiveTask={this.selectActiveTask}
+                              deleteTask={this.deleteTask}/>
+                </div>
             </div>
         )
     }
@@ -35,7 +40,7 @@ export class TodoContainer extends Component<any, initialState> {
     getSortedTaskList = () => {
         let {taskList} = this.state;
         taskList.sort((a: TodoItem, b: TodoItem) => {
-            return (a === b)? 0 : a? -1 : 1;
+            return (a.status === b.status) ? 0 : a.status ? -1 : 1;
         });
         return taskList;
     }

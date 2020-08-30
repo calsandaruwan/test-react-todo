@@ -1,23 +1,22 @@
 import React from 'react';
-import {TodoItem} from './index'
-import {Task} from "./task";
-
-interface Props {
-    taskList: TodoItem[],
-    updateTaskStatus: (arg0: number) => void,
-    selectActiveTask: (arg0: TodoItem) => void,
-    deleteTask: (arg0: number) => void,
-}
+import {TodoItem, TaskListInterface as Props} from './index'
+import {Task} from "./Task";
 
 export const TaskList: React.FC<Props> = (props) => {
     const {taskList} = props;
 
     if (!(taskList && taskList.length)) {
-        return <div>No tasks available</div>
+        return (
+            <div className='text-center text-lg p-6'>
+                <div>No tasks available at the moment.</div>
+                <div>Please add new task to see them here</div>
+            </div>
+        )
     }
 
     return (
-        <div id='todoList'>
+        <div className="px-0 border border-gray-200 rounded overflow-hidden max-h"
+             id='todoList'>
             {
                 taskList.map((task: TodoItem) => {
                     return <Task key={task.id}

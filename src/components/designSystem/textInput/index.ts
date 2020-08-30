@@ -1,8 +1,12 @@
-import React from "react";
+import {SizeType} from "antd/lib/config-provider/SizeContext";
 
 export {InputTextDS} from './TextInput';
 
 export interface Props {
     value: any
-    onChange: (e: React.MouseEvent<HTMLElement>) => void,
+    onChange: (e: any) => void,
+    className?: string
+    bordered?: boolean
+    placeholder?: string
+    size?: SizeType
 }
