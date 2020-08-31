@@ -37,10 +37,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### `build:css`
+### `npm run build:css`
 Generate tailwind css in to main.css file, Run this if you make any changes to tailwind css
 
-### `storybook`
+### `npm run storybook`
 Run storybook
 
 ## Setup guide
@@ -54,6 +54,7 @@ Run following commands to init the project
 Storybook is integrated. All the design system components and todo app components are already added there.
 
 ## Architecture
+* Node version - 12.18.3
 * Front end is React typescript
 * Tailwind is the css framework
 * Configure tailwind config through `./tailwind.config.js`
